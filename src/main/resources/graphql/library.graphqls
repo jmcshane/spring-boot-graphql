@@ -1,0 +1,28 @@
+type Book {
+    id: ID!
+    title: String!
+    author: String!
+    publishYear: Int
+}
+
+type Library {
+    id: ID!
+    libraryName: String
+    address: String
+    books: [Book]!
+}
+
+type Rating {
+    id: ID!
+    score: Int!
+    book: Book!
+    ratingText: String
+}
+
+type Query {
+    booksForLibrary(libraryId: ID!, count : Int) : [Book]!
+}
+
+type Mutation {
+    writeRating(bookId: ID!, score: Int!, ratingText : String) : Rating!
+}
